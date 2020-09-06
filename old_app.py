@@ -71,7 +71,7 @@ def index():
 
     else:
         battles = BattleLog.query.order_by(BattleLog.created_at).all()
-        return render_template('index.html', battles=battles)
+        return render_template('battlelog.html', battles=battles)
 
 @app.route('/delete/<int:id>')
 def delete(id):
