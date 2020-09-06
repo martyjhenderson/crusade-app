@@ -4,12 +4,14 @@
 <div class="container">
   <h1 class="my-4">Battle Logs</h1>
   {% if battles|length < 1 %}
-  <p>There is nothing to buy for now.</p>
+  <p>There is only war. Get to it.</p>
   {% else %}
   <table class="table">
     <thead>
       <tr>
         <th>Battles</th>
+          <th>Attacker</th>
+          <th>Defender</th>
         <th>Added</th>
         <th></th>
       </tr>
@@ -18,6 +20,8 @@
       {% for battle in battles %}
       <tr>
         <td><a href="/update/{{ battle.id }}">{{ battle.name }}</a></td>
+          <td>{{ battle.attacker }}</td>
+          <td>{{ battle.defender }}</td>
         <td>{{ battle.created_at.date() }}</td>
         <td class="text-right"><a class="btn btn-danger btn-sm" href="/delete/{{ battle.id }}" role="button">Delete</a></td>
       </tr>
