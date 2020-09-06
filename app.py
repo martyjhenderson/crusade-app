@@ -4,12 +4,14 @@ from datetime import datetime
 
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///test.db'
-app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = True
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(app)
 
 class BattleLog(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(80), nullable=False)
+    attacker = db.Column(db.String(80), nullable=True)
+    defender = db.Column(db.String(80), nullable=True)
     created_at = db.Column(db.DateTime, nullable=False,
                            default=datetime.utcnow)
 
@@ -50,6 +52,8 @@ def update(id):
 
     if request.method == 'POST':
         battle.name = request.form['name']
+        battle.attacker = request.form['attacker']
+        battle.defender = request.form['defender']
 
         try:
             db.session.commit()
