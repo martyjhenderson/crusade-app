@@ -7,14 +7,16 @@ A lazy logging tool so that we can keep track of our Warhammer 40k Crusade Games
 ## How to use it
 
   * Copy it down
-  * Pop open a python terminal
-  * Run 
-  ```python
-from app import db
-db.create_all()
-```
+  * Create a venv
+  * Install the requirements.txt
+  * Setup the sqllitedb with `FLASK_APP=manager flask db init`
+    * It may error, and I am working on that
+  * Run the database migrations with `FLASK_APP=manager flask db upgrade`
+  * Start it up with `FLASK_APP=manager flask run`
+  * When you go to http://localhost:5000 it will redirect you. Be sure to register yourself.
 
 
 ## Thanks
 
-Thanks to [Koji Mochizuki](https://github.com/kjmczk) for their [tutorial](https://medium.com/technest/build-a-crud-app-with-flask-bootstrap-heroku-60dfa3a788e8)
+* Thanks to [Koji Mochizuki](https://github.com/kjmczk) for their [tutorial](https://medium.com/technest/build-a-crud-app-with-flask-bootstrap-heroku-60dfa3a788e8)
+* Thanks to [Miguel Grinberg](https://github.com/miguelgrinberg) for his [Mega-Tutorial on Flask](https://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-part-i-hello-world)
