@@ -6,6 +6,7 @@
 ### Demo Databases ###
 
 test.db
+app.db
 
 
 ### Flask ###
