@@ -6,3 +6,4 @@ flask-login==0.5.0
 werkzeug==1.0.1
 email-validator==1.1.1
 pytest==6.0.1
+flask-bootstrap==3.3.7.1
